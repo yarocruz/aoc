@@ -17,18 +17,15 @@ fs.readFile('input.txt', 'utf-8', (err, data) => {
     }
 
     // create a clone of bingoBoards to mark the called numbers from board
+    /** TODO: I don't think we need to do this */
     let mockBoards = JSON.parse(JSON.stringify(bingoBoards));
 
     // keep track of numbers being drawn
     let lastCalled;
 
-    let winningBoard;
-    let index;
-
     // start loop through bingNumbers to draw numbers
     for (let i = 0; i < bingoNumbers.length; i++) {
         // start looping through the bingBoards
-        console.log(bingoBoards.length, mockBoards.length);
         lastCalled = bingoNumbers[i]
         for (let board = 0; board < bingoBoards.length; board++) {
             for (let row = 0; row < bingoBoards[board].length; row++) {
@@ -39,30 +36,21 @@ fs.readFile('input.txt', 'utf-8', (err, data) => {
                     }
                 }
             }
-
         }
-        // loop again through each board to find winners and splice them out the mockbaord
-        for (let bd = 0; bd < bingoBoards.length; bd++) {
+        // loop again through each board to find winners and splice them out the mockbaord/bingoboard
+        for (let b = 0; b < mockBoards.length; b++) {
             if (findWinningBoard(mockBoards)) {
                 const [winner, index] = findWinningBoard(mockBoards)
                 // every time we find a winner we remove that board 
                 // from both, the mockBoards, and the bingoBoard
-                //console.log(winner, "winner?")
                 mockBoards.splice(index, 1)
                 bingoBoards.splice(index, 1)
-                winningBoard = JSON.parse(JSON.stringify(winner));
-                console.log(winningBoard)
-                //console.log(mockBoards)
                 console.log(lastCalled);
-                console.log(lastCalled, findBoardScore(winningBoard));
-                console.log(lastCalled * findBoardScore(winningBoard));
+                console.log(lastCalled, findBoardScore(winner));
+                console.log(lastCalled * findBoardScore(winner));
             }
         }
-
-
     }
-    // console.log(lastCalled, findBoardScore(winningBoard));
-    // console.log(lastCalled * findBoardScore(winningBoard));
 })
 
 function findBoardScore(winningBoard) {
