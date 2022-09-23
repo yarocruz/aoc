@@ -18,7 +18,7 @@ fs.readFile('input.txt', 'utf-8', (err, data) => {
     for (let i = 1; i <= 256; i++) {
         // each day we 'shift out' a fish at day 0
         let newCount = fishStates.shift()
-        // we add how many fishes are on day 6 plush the the one on Day 0
+        // we add how many fishes are on day 6 plus the the one on Day 0
         fishStates[6] += newCount
         // and push to Day 8 the amount the brand new fishes
         fishStates.push(newCount)
