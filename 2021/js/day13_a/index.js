@@ -40,7 +40,7 @@ fs.readFile('input.txt', 'utf-8', (err, data) => {
     console.log(rightSide.length, grid.length)
 
     // when extracting this to a function
-    // we need to check if the rightSide ends short the the original grid/left
+    // we need to check if the rightSide ends up being shorter the the original grid/left
     // we loop from the end
     // if opposite, than we need to unshift() the overlapping cols
     for (let i = 0; i < rightSide.length; i++) {
