@@ -13,7 +13,7 @@ fs.readFile('input.txt', 'utf-8', (err, data) => {
 
     }
 
-    // sort from hightest to lowest
+    // sort from highest to lowest
     listOfElfCalories.sort((a, b) => b - a);
 
     let topThreeTotal = listOfElfCalories[0] + listOfElfCalories[1] + listOfElfCalories[2]
