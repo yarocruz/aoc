@@ -17,31 +17,31 @@ fs.readFile('input.txt', 'utf-8', (err, data) => {
     let score = 0;
 
     for (let i = 0; i < guide.length; i++) {
-        // I need to win, so choose paper, 2
+        // I need to win, so add to score a win with paper
         if (guide[i][0] === 'A' && guide[i][1] === 'Z') {
             score += 8
-            // I need to draw, so choose rock
+            // I need to draw, add to score a draw with rock
         } else if (guide[i][0] === 'A' && guide[i][1] === 'Y') {
             score += 4
-            // I need to loose, so choose rock
+            // I need to loose, add to score rock = 1
         } else if (guide[i][0] === 'B' && guide[i][1] === 'X') {
             score += 1
-            // I need to win   
+            // I need to win, add to score win with scissor 
         } else if (guide[i][0] === 'B' && guide[i][1] === 'Z') {
             score += 9
-            // I need to loose   
+            // I need to loose add to score paper = 2
         } else if (guide[i][0] === 'C' && guide[i][1] === 'X') {
             score += 2
-            // I need to draw with scissor  
+            // I need to draw add to score draw with scissor  
         } else if (guide[i][0] === 'C' && guide[i][1] === 'Y') {
             score += 6;
-            // I need to lose with scissor
+            // I need to lose add to score scissor = 3
         } else if (guide[i][0] === 'A' && guide[i][1] === 'X') {
             score += 3
-            // i need to drew with paper    
+            // i need to draw add to score draw with paper    
         } else if (guide[i][0] === 'B' && guide[i][1] === 'Y') {
             score += 5
-            // i need to win with rock     
+            // i need to win add to score with with rock     
         } else if (guide[i][0] === 'C' && guide[i][1] === 'Z') {
             score += 7
         }
